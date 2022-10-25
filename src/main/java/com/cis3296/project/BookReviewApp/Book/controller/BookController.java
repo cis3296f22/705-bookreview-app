@@ -22,12 +22,12 @@ public class BookController {
     }
 
     /** Get all books **/
-    /*
+
     @GetMapping(value = "/books")
     public List<Book> getBooks() {
         return bookRepo.findAll();
     }
-    */
+    
 
     /** Add a book **/
     /*
