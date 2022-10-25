@@ -30,13 +30,13 @@ public class BookController {
     
 
     /** Add a book **/
-    /*
+
     @PostMapping(value = "/books/add")
     public String addBook(@RequestBody Book book) {
         bookRepo.save(book);
         return "Title: " + book.getTitle() + " Author: " + book.getAuthor() + " added.";
     }
-     */
+
 
     /** Update a book **/
     /*
