@@ -1,12 +1,10 @@
-package com.cis3296.project.BookReviewApp.Book;
+package com.cis3296.project.BookReviewApp.Book.controller;
 
 import com.cis3296.project.BookReviewApp.Book.model.Book;
 import com.cis3296.project.BookReviewApp.Book.repo.BookRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
-
 
 @RestController
 public class BookController {
@@ -18,12 +16,10 @@ public class BookController {
     /*** Uncomment one of the following mappings for initial commit ***/
 
     /** Welcome Page **/
-    /*
     @GetMapping(value = "/")
     public String getWelcomePage() {
         return "Welcome to the application";
     }
-    */
 
     /** Get all books **/
     /*
