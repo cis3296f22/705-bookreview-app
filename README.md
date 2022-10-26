@@ -1,9 +1,12 @@
-# CIS3296: Book Review Web Application Project
+# CIS 3296: Book Review Web Application Project
 
-This is a README file for CIS3296 Course Project.
+This is a README file for our CIS 3296 Course Project.
+
+### Trello Board
+https://trello.com/b/YncmQM2F/sprint
 
 ### Description of Project:
-A web application that allows users to rate books, write reviews, track reading history, and see statistical data on most read genre.
+A web application that allows users to rate books, write reviews, track reading history, and see statistical data on the most read genres.
 
 ### Members:
 * Ben Baldino
@@ -12,20 +15,23 @@ A web application that allows users to rate books, write reviews, track reading 
 * Brian Rangel
 * Destinee Sheung
 
-### Getting started
-##### For our initial individual commit:
-   * Download IntelliJ IDE, PgAdmin for database management, and Postman
-   * Clone Github repo on you local machine
-   * Access database using pgAdmin (postgres configuration are available in `src/main/resources/application.properties` file)
-   * Run the program and go to localhost:8080 in your web browser (at this point, there aren't any mappings yet)
-   * Uncomment any one of the mappings in `BookController.java` file.
-   * Run the program again to check the specific mapping that you have added using Postman.
-     * For example, the body of the request to check addBook method should look: ```{
-       "title": "Book Title",
-       "author": "Author Name",
-       "genre": "Book Genre"
-       }```.
-   * Commit to branch dev and create a pull request.
+### Building Instructions:
+* Download IntelliJ IDE for development, PgAdmin (PostgreSQL) for database management, and Postman to interact with the endpoints.
+* Clone the Github repo on your local machine.
+* Access the database using pgAdmin (postgres configuration are available in the `src/main/resources/application.properties` file).
+* Run the program to start the backend of the project.
+* To access the backend, go to localhost:8080 in your web browser or in Postman (recommended).
+* As an example, if you wanted to interact with the addBook endpoint of the backend, the body of the request should be: 
+  ```
+  {
+    "title": "Book Title",
+    "author": "Author Name",
+    "genre": "Book Genre"
+  }
+  ```
 
-
-
+### Installation Instructions:
+To install the program, go to the "Releases" tab on the right side of this GitHub page and download the executable JAR file. Once the JAR file is downloaded, run the following command in your command-line to start up the proof of concept.
+```
+java -jar <filename>.jar
+```
