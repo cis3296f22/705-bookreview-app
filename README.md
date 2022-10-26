@@ -2,6 +2,9 @@
 
 This is a README file for CIS3296 Course Project.
 
+### Description of Project:
+A web application that allows users to rate books, write reviews, track reading history, and see statistical data on most read genre.
+
 ### Members:
 * Ben Baldino
 * Tugs Khaliunbat
