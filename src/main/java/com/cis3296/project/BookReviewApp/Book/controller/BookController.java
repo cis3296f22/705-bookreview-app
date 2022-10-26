@@ -39,7 +39,6 @@ public class BookController {
 
 
     /** Update a book **/
-    /*
     @PutMapping(value = "/books/update/{id}")
     public String updateBook(@PathVariable Long id, @RequestBody Book book) {
         Book updatedBook = bookRepo.findById(id).get();
@@ -49,15 +48,12 @@ public class BookController {
         bookRepo.save(updatedBook);
         return updatedBook.getId() + " updated.";
     }
-     */
 
     /** Delete a book **/
-    /*
     @DeleteMapping(value = "/books/delete/{id}")
     public String deleteBook(@PathVariable Long id) {
         Book deleteBook = bookRepo.findById(id).get();
         bookRepo.delete(deleteBook);
         return id + " deleted.";
     }
-     */
 }
