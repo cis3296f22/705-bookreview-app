@@ -1,48 +1,59 @@
 package com.cis3296.project.BookReviewApp.Book.controller;
 
-import com.cis3296.project.BookReviewApp.Book.service.BookService;
 import com.cis3296.project.BookReviewApp.Book.model.Book;
+import com.cis3296.project.BookReviewApp.Book.repo.BookRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/books")
 public class BookController {
-    @Autowired
-    BookService bookService;
 
-    // do we need this endpoint? this should be handled in the front end?
+    @Autowired
+    private BookRepo bookRepo;
+
+
+    /*** Uncomment one of the following mappings for initial commit ***/
+
     /** Welcome Page **/
-    @GetMapping("/")
+    @GetMapping(value = "/")
     public String getWelcomePage() {
         return "Welcome to the application";
     }
 
-    /** Add a Book **/
-    @PostMapping("/add")
+    /** Get all books **/
+
+    @GetMapping(value = "/books")
+    public List<Book> getBooks() {
+        return bookRepo.findAll();
+    }
+    
+
+    /** Add a book **/
+
+    @PostMapping(value = "/books/add")
     public String addBook(@RequestBody Book book) {
-        boolean userExists = bookService.containsDuplicate(book.getTitle());
-        return userExists == true ? "This Book Already Exists" : bookService.addBook(book);
+        bookRepo.save(book);
+        return "Title: " + book.getTitle() + " Author: " + book.getAuthor() + " added.";
     }
 
-    /** Find a Specific Book (No error Handling)**/
-    @GetMapping("/find/{bookTitle}")
-    public Book getBook(@PathVariable String bookTitle) {
-        System.out.println("getBook endpoint called");
-        return bookService.findBook(bookTitle);
+
+    /** Update a book **/
+    @PutMapping(value = "/books/update/{id}")
+    public String updateBook(@PathVariable Long id, @RequestBody Book book) {
+        Book updatedBook = bookRepo.findById(id).get();
+        updatedBook.setAuthor(book.getAuthor());
+        updatedBook.setTitle(book.getTitle());
+        updatedBook.setGenre((book.getGenre()));
+        bookRepo.save(updatedBook);
+        return updatedBook.getId() + " updated.";
     }
 
-    /** Find All Books **/
-    @GetMapping("/find_all")
-    public List<Book> getAllBooks() {
-        System.out.println("getBook endpoint called");
-        return bookService.findAllBooks();
-    }
-
-    /** Update a Book **/
-    @PutMapping("/update/{bookId}")
-    public String updateBook(@PathVariable Long bookId, @RequestBody Book book) {
-        return bookService.updateBook(bookId, book);
+    /** Delete a book **/
+    @DeleteMapping(value = "/books/delete/{id}")
+    public String deleteBook(@PathVariable Long id) {
+        Book deleteBook = bookRepo.findById(id).get();
+        bookRepo.delete(deleteBook);
+        return id + " deleted.";
     }
 }
