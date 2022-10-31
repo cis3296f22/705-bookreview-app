@@ -1,4 +1,4 @@
-package com.cis3296.project.BookReviewApp;
+package BookReviewApp;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

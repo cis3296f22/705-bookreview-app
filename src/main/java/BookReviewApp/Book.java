@@ -1,30 +1,9 @@
-package com.cis3296.project.BookReviewApp.Book.model;
+package BookReviewApp;
 
-import javax.persistence.*;
-
-@Entity
 public class Book {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-
-    @Column
     private String title;
-
-    @Column
     private String author;
-
-    @Column
     private String genre;
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
 
     public String getTitle() {
         return title;
