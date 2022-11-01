@@ -1,28 +1,23 @@
-package com.cis3296.project.BookReviewApp.Book.model;
+package BookReviewApp;
 
-import javax.persistence.*;
-
-@Entity
 public class Book {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-
-    @Column
+    private Integer id;
     private String title;
-
-    @Column
     private String author;
-
-    @Column
     private String genre;
 
-    public long getId() {
+    public Book(Integer id, String title, String author, String genre) {
+        this.id = id;
+        this.title = title;
+        this.author = author;
+        this.genre = genre;
+    }
+
+    public Integer getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -48,5 +43,14 @@ public class Book {
 
     public void setGenre(String genre) {
         this.genre = genre;
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "title='" + title + '\'' +
+                ", author='" + author + '\'' +
+                ", genre='" + genre + '\'' +
+                '}';
     }
 }
