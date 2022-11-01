@@ -1,7 +1,7 @@
-package com.cis3296.project.BookReviewApp.Book.service;
+package com.cis3296.project.BookReviewApp.service;
 
-import com.cis3296.project.BookReviewApp.Book.model.Review;
-import com.cis3296.project.BookReviewApp.Book.repository.ReviewRepository;
+import com.cis3296.project.BookReviewApp.model.Review;
+import com.cis3296.project.BookReviewApp.repository.ReviewRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

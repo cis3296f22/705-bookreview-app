@@ -1,4 +1,4 @@
-package com.cis3296.project.BookReviewApp.Book.model;
+package com.cis3296.project.BookReviewApp.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
