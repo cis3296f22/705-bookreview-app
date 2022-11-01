@@ -1,6 +1,6 @@
-package com.cis3296.project.BookReviewApp.repository;
+package BookReviewApp.repository;
 
-import com.cis3296.project.BookReviewApp.model.User;
+import BookReviewApp.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

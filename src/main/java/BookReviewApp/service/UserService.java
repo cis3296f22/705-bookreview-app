@@ -1,7 +1,7 @@
-package com.cis3296.project.BookReviewApp.service;
+package BookReviewApp.service;
 
-import com.cis3296.project.BookReviewApp.model.User;
-import com.cis3296.project.BookReviewApp.repository.UserRepository;
+import BookReviewApp.model.User;
+import BookReviewApp.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

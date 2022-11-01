@@ -1,7 +1,7 @@
-package com.cis3296.project.BookReviewApp.controller;
+package BookReviewApp.controller;
 
-import com.cis3296.project.BookReviewApp.service.UserService;
-import com.cis3296.project.BookReviewApp.model.User;
+import BookReviewApp.service.UserService;
+import BookReviewApp.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
