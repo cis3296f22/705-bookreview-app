@@ -1,9 +1,25 @@
 package BookReviewApp;
 
 public class Book {
+    private Integer id;
     private String title;
     private String author;
     private String genre;
+
+    public Book(Integer id, String title, String author, String genre) {
+        this.id = id;
+        this.title = title;
+        this.author = author;
+        this.genre = genre;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getTitle() {
         return title;
@@ -27,5 +43,14 @@ public class Book {
 
     public void setGenre(String genre) {
         this.genre = genre;
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "title='" + title + '\'' +
+                ", author='" + author + '\'' +
+                ", genre='" + genre + '\'' +
+                '}';
     }
 }
