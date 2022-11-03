@@ -15,7 +15,18 @@ A web application that allows users to rate books, write reviews, track reading 
 * Brian Rangel
 * Destinee Sheung
 
-### Testing Instructions:
+### Installation Instructions:
+* To install the program, go to the "Releases" tab on the right side of this GitHub page and download the executable JAR file. Once the JAR file is downloaded, run the   following command in your command-line to start up the proof of concept.
+  ```
+  java -jar <filename>.jar
+  ```
+* Next you can click the following link to use the Github Pages to test the endpoints:
+  ```
+   [Github Pages](https://cis3296f22.github.io/705-bookreview-app/)
+  ```
+
+
+### Testing Instructions(Postman):
 * Download IntelliJ IDE for development and Postman to interact with the endpoints.
 * Clone the Github repo on your local machine.
 * Run the program to start the backend of the project.
