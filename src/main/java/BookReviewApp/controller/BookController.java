@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/book")
 public class BookController {
 
@@ -40,5 +41,11 @@ public class BookController {
     @PutMapping("/update/{bookId}")
     public String updateBook(@PathVariable Integer bookId, @RequestBody Book book) {
         return bookService.updateBook(bookId, book);
+    }
+
+    /** Delete a book **/
+    @DeleteMapping("/delete/{bookId}")
+    public String deletebook(@PathVariable Integer bookId) {
+        return bookService.deleteBook(bookId);
     }
 }

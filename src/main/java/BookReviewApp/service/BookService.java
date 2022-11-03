@@ -43,6 +43,12 @@ public class BookService {
         return String.format("Book ID: %d has been updated.", updatedBook.getBookId());
     }
 
+    /**  Delete a Book **/
+    public String deleteBook(Integer bookId) {
+        bookRepository.deleteById(bookId);
+        return String.format("Book ID: %d has been deleted.", bookId);
+    }
+
     /** Checks if the book being added already exists. **/
     public boolean containsDuplicate(String title){
         List<Book> allUsers = bookRepository.findAll();
