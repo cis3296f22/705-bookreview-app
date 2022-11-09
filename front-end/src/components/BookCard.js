@@ -1,6 +1,9 @@
 import { useState } from 'react';
+// import * as React from 'react';
 import styled from 'styled-components';
 import Modal from 'styled-react-modal'
+import { Button } from '@mui/material';
+// import Button from '@mui/material/Button';
 
 function BookCard(props) {
     const {
@@ -32,6 +35,9 @@ function BookCard(props) {
                     <Authors>by {formattedAuthors(authors)}</Authors>
                     <Category>{categories}</Category>
                 </Info>
+                    <Button sx={{ marginLeft:"auto"}}>
+                        Add
+                    </Button>
             </StyledBookCard>
             <StyledModal
                 isOpen={isOpen}
@@ -50,9 +56,14 @@ function BookCard(props) {
                     <Close onClick={toggleModal}>Close</Close>
                 </ModalInfo>
             </StyledModal>
+
         </>
     )
 }
+
+// const Button = styled.div`
+//     m = {1};
+// `;
 
 const Thumbnail = styled.img`
     height: 100px;

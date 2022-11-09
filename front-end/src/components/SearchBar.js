@@ -1,9 +1,9 @@
-import Header from "./Header"
+import AppBar from "./AppBar"
 import styled from 'styled-components';
 import BookCard from './BookCard';
 import { useState } from 'react';
 
-function Search() {
+function SearchBar() {
     const [searchValue, setSearchValue] = useState('');
     const [cards, setCards] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -14,6 +14,7 @@ function Search() {
         try {
             const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${searchValue}`)
             const data = await response.json()
+            console.log(data.items)
             if (data.items.length > 0) {
                 setCards(data.items)
                 setLoading(false)
@@ -63,7 +64,7 @@ function Search() {
 
     return (
         <>
-            <Header />
+            <AppBar />
             <StyledSearch>
                 <Title>Search</Title>
                 <Form onSubmit={handleSearch}>
@@ -81,7 +82,7 @@ function Search() {
     )
 }
 
-export default Search;
+export default SearchBar;
 
 const StyledSearch = styled.div`
     display: flex;
