@@ -1,9 +1,12 @@
-import Header from "./Header"
+//import Header from "./Header"
+import AppBar from "./AppBar"
 
-function Home() {
+function homepage() {
     return (
-        <Header />
+        // <><Header />
+        <AppBar />
+
     )
 }
 
-export default Home;
+export default homepage;
