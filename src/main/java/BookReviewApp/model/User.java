@@ -31,13 +31,24 @@ public class User {
     @Column(name = "email")
     private String email;
 
-    @Column(name = "age")
-    private String age;
-
     /** a user can leave many reviews **/
     @JsonIgnore
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL) // a user can leave many reviews
     private List<Review> reviews;
+
+    /** relation between user and books **/
+//    @JsonIgnore
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL) // CascadeType.ALL contains all cascade operation. used to populate a book table when adding a book
+    @JoinTable( // creates the join table "user_book", along with the two composite keys
+            name = "user_book",
+            joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "userId"), // user id in the join table
+            inverseJoinColumns = @JoinColumn(name = "book_id", referencedColumnName = "bookId") // book id in the join table
+    )
+    private List<Book> bookList; // adding a book to this list will save user to book relationship
+
+    public void addBook(Book book) {
+        bookList.add(book);
+    }
 
     /**  getters and setters replaced with lombok annotations **/
 
