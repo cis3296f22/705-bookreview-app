@@ -1,9 +1,12 @@
 package BookReviewApp.service;
 
 import BookReviewApp.model.Book;
+import BookReviewApp.model.User;
 import BookReviewApp.repository.BookRepository;
+import BookReviewApp.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -16,6 +19,9 @@ public class BookService {
 
     @Autowired
     BookRepository bookRepository;
+
+    @Autowired
+    UserRepository userRepository;
 
     /** Get all books **/
     public List<Book> getAll() {
@@ -34,7 +40,7 @@ public class BookService {
     }
 
     /**  Update a Book **/
-    public String updateBook(@PathVariable Integer bookId, @RequestBody Book book) {
+    public String updateBook(@PathVariable Long bookId, @RequestBody Book book) {
         Book updatedBook = bookRepository.findById(bookId).get();
         updatedBook.setAuthor(book.getAuthor());
         updatedBook.setTitle(book.getTitle());
@@ -43,16 +49,25 @@ public class BookService {
         return String.format("Book ID: %d has been updated.", updatedBook.getBookId());
     }
 
-    /**  Delete a Book **/
-    public String deleteBook(Integer bookId) {
+    /**  Delete a Book By Id **/
+    @Transactional
+    public String deleteBookById(Long bookId) {
         bookRepository.deleteById(bookId);
         return String.format("Book ID: %d has been deleted.", bookId);
     }
 
-    /** Checks if the book being added already exists. **/
-    public boolean containsDuplicate(String title){
-        List<Book> allUsers = bookRepository.findAll();
-        boolean duplicateBook = allUsers.stream().filter(o -> o.getTitle().equals(title)).findFirst().isPresent();
-        return (duplicateBook);
+    /** Removes a book from a user **/
+    @Transactional
+    public Long removeBookFromUser(Long userId, String bookTitle) {
+        Long bookId = null;
+        User user = userRepository.findById(userId).get();
+        for (Book book : user.getBookList()) {
+            if (book.getTitle().equals(bookTitle)) {
+                user.getBookList().remove(book);
+                bookId = book.getBookId();
+                break;
+            }
+        }
+        return bookId;
     }
 }
