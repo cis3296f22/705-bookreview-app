@@ -15,9 +15,8 @@ public class UserService {
     UserRepository userRepository;
 
     /** Creating a New User **/
-    public String createUser(User user) {
-        userRepository.save(user);
-        return String.format("Welcome %s!", user.getUserName());
+    public Long createUser(User user) {
+        return userRepository.save(user).getUserId(); // after user creates account, their user id will be stored globally in the front end
     }
 
     /** Checks If User Already Exists **/
@@ -76,8 +75,8 @@ public class UserService {
     }
 
     /** Validates User Login **/
-    public boolean userLogin(String userName, String password) {
-        User user = userRepository.findByUserName(userName);
-        return user.getPassword().equals(password) ? true : false;
+    public Long userLogin(String email, String password) {
+        User user = userRepository.findByEmailAndPassword(email, password); // after user login, their user id will be stored globally in the front end
+        return user != null ? user.getUserId() : 0;
     }
 }

@@ -10,5 +10,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
     // There is a list of default methods. below are custom query methods
     User findByUserName(String userName);
 
+    User findByEmailAndPassword(String userName, String password);
+
     void deleteByUserName(String userName);
 }
