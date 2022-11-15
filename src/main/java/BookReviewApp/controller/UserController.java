@@ -17,9 +17,9 @@ public class UserController {
 
     /** Creating a New User **/
     @PostMapping("/create")
-    public String createUser(@RequestBody User user) {
+    public Long createUser(@RequestBody User user) {
         boolean userExists = userService.containsDuplicateUser(user.getUserName(), user.getEmail());
-        return userExists == true ? "This User Has An Existing Account" : userService.createUser(user);
+        return userExists == true ? Long.valueOf(0) : userService.createUser(user);
     }
 
     /** Not sure what situation we would need to look up a user. maybe in settings in order to change something? **/
@@ -53,9 +53,9 @@ public class UserController {
     }
 
     /** Verify User Login **/
-    @GetMapping("/login/{userName}/{password}")
-    public boolean userLogin(@PathVariable String userName, @PathVariable String password) {
-        return userService.userLogin(userName, password);
+    @GetMapping("/login/{email}/{password}")
+    public Long userLogin(@PathVariable String email, @PathVariable String password) {
+        return userService.userLogin(email, password);
     }
 }
 
