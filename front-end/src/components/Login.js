@@ -46,6 +46,7 @@ const Login = (props) => {
                 console.log("sucessfully created user"); // successfully create a user
                 setAlert(false);
                 routeChange();
+                console.log(response.data);
             }
             console.log(inputs);
         })
@@ -64,6 +65,7 @@ const Login = (props) => {
                 console.log("sucessfully created user"); // Successfully logged in 
                 setAlert(false);
                 routeChange();
+                console.log(response.data);
             }
         })
     }
