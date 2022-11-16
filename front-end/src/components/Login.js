@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react'
+import React, { useState } from 'react'
 import { Alert, Box, Button, TextField, Typography } from '@mui/material';
 import LoginIcon from '@mui/icons-material/Login';
 import HowToRegIcon from '@mui/icons-material/HowToReg';
@@ -6,7 +6,7 @@ import Axios from 'axios';
 import { useNavigate } from "react-router-dom";
 
 
-const Login = (props) => {
+const Login = () => {
     const [isSignup, setIsSignup] = useState(false)
     // const [alertContent, setAlertContent] = useState('');
 

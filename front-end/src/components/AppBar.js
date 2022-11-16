@@ -229,7 +229,7 @@ export default function MiniDrawer() {
                             </ListItemButton>
                     </ListItem>
 
-                    <ListItem onClick={() => {console.log("book shelves")}} key='Book Shelves' disablePadding sx={{ display: 'block' }}>
+                    <ListItem onClick={() => {console.log("book shelves")}} component={Link} to="/shelves" key='Book Shelves' disablePadding sx={{ display: 'block' }}>
                             <ListItemButton
                                 sx={{
                                     minHeight: 48,

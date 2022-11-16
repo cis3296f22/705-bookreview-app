@@ -1,4 +1,4 @@
-import AppBar from "./AppBar"
+// import AppBar from "./AppBar"
 import styled from 'styled-components';
 import BookCard from './BookCard';
 import { useState } from 'react';
@@ -50,6 +50,7 @@ function SearchBar() {
                             pageCount={item.volumeInfo.pageCount}
                             authors={authors}
                             publisher={item.volumeInfo.publisher}
+                            isbn={item.volumeInfo.industryIdentifiers.identifier}
                             description={item.volumeInfo.description}
                             infoLink={item.volumeInfo.infoLink}
                         />
@@ -57,14 +58,16 @@ function SearchBar() {
                 );
             });
             return (
-                <BookContainer>{items}</BookContainer>
+                <BookContainer>
+                    {items}
+                </BookContainer>
             );
         }
     }
 
     return (
         <>
-            <AppBar />
+            {/* <AppBar /> */}
             <StyledSearch>
                 <Title>Search</Title>
                 <Form onSubmit={handleSearch}>

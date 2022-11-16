@@ -28,6 +28,10 @@ public class BookService {
         return bookRepository.findAll();
     }
 
+    public List<Book> findAllByShelf(Integer shelfId) {
+        return bookRepository.findAllByShelfId(shelfId);
+    }
+
     /** Add a book **/
     public String addBook(Book book) {
         bookRepository.save(book);
@@ -45,6 +49,8 @@ public class BookService {
         updatedBook.setAuthor(book.getAuthor());
         updatedBook.setTitle(book.getTitle());
         updatedBook.setGenre((book.getGenre()));
+        updatedBook.setShelfId(book.getShelfId());
+        updatedBook.setIsbn(book.getIsbn());
         bookRepository.save(updatedBook);
         return String.format("Book ID: %d has been updated.", updatedBook.getBookId());
     }
@@ -69,5 +75,9 @@ public class BookService {
             }
         }
         return bookId;
+    }
+
+    public boolean containsDuplicate(Book book) {
+        return bookRepository.existsById(book.getBookId());
     }
 }
