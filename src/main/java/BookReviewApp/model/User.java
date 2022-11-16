@@ -44,6 +44,7 @@ public class User {
             joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "userId"), // user id in the join table
             inverseJoinColumns = @JoinColumn(name = "book_id", referencedColumnName = "bookId") // book id in the join table
     )
+
     private List<Book> bookList; // adding a book to this list will save user to book relationship
 
     public void addBook(Book book) {
