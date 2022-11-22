@@ -3,16 +3,19 @@ import styled from 'styled-components';
 import BookCard from './BookCard';
 import { useState } from 'react';
 
+
 function SearchBar() {
     const [searchValue, setSearchValue] = useState('');
     const [cards, setCards] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [categories, setCategory] = useState("");
+
 
     const handleSearch = async (e) => {
         e.preventDefault();
         setLoading(true)
         try {
-            const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${searchValue}`)
+            const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=$` +searchValue +categories +`&maxResults=30`)
             const data = await response.json()
             console.log(data.items)
             if (data.items.length > 0) {
@@ -24,6 +27,10 @@ function SearchBar() {
             console.log(err)
         }
     }
+    function onCategoryChange(e) {
+        const selectedCategory = e.target.value;
+        setCategory(selectedCategory)
+    };
 
     const handleCards = () => {
         if (loading) {
@@ -73,9 +80,24 @@ function SearchBar() {
                         placeholder="Search by Book Title or Author"
                         value={searchValue}
                         onChange={(e) => setSearchValue(e.target.value)}
+            
                     />
                     <Button>Search</Button>
                 </Form>
+                
+                <div className="selected-wrapper">
+                    <select onChange = {onCategoryChange}>
+                        <option value="">All</option>
+                        <option value="+subject:Fiction">Fiction</option>
+                        <option value="+subject:Literary Criticism">Literary Criticism</option>
+                        <option value="+subject:Art">Art</option>
+                        <option value="+Computers">Computers</option>
+                        
+                    </select>
+                </div>
+
+
+                   
                 {handleCards()}
             </StyledSearch>
         </>
