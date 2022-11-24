@@ -41,7 +41,7 @@ public class UserController {
     }
 
     /** Adds a Book To a User **/
-    @PutMapping("add/{userId}")
+    @PostMapping("add/{userId}")
     public boolean addBook(@PathVariable Long userId, @RequestBody Book book) {
         return userService.addBook(userId, book);
     }

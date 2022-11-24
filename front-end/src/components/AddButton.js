@@ -3,7 +3,7 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import * as React from 'react';
 
 
-export default function AddButton({ title, author, isbn, genre }) {
+export default function AddButton({ title, author, isbn, genre, token }) {
 
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
@@ -26,8 +26,8 @@ export default function AddButton({ title, author, isbn, genre }) {
             body: raw,
             redirect: 'follow'
         };
-
-        fetch("http://localhost:8080/book/add", requestOptions)
+        console.log(token)
+        fetch(`http://localhost:8080/user/add/${token.token}`, requestOptions)
             .then(response => response.text())
             .then(result => console.log(result))
             .catch(error => console.log('error', error));

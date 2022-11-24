@@ -4,7 +4,8 @@ import BookCard from './BookCard';
 import { useState } from 'react';
 import AddButton from './AddButton';
 
-function SearchBar() {
+function SearchBar(token) {
+    console.log(token)
     const [searchValue, setSearchValue] = useState('');
     const [cards, setCards] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -74,6 +75,7 @@ function SearchBar() {
                             author={authors}
                             genre={item.volumeInfo.categories}
                             isbn={isbn}
+                            token={token}
                         />
                         
                     </SearchContainer>
