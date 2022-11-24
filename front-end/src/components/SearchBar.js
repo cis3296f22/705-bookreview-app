@@ -2,6 +2,7 @@
 import styled from 'styled-components';
 import BookCard from './BookCard';
 import { useState } from 'react';
+import AddButton from './AddButton';
 
 function SearchBar() {
     const [searchValue, setSearchValue] = useState('');
@@ -40,8 +41,22 @@ function SearchBar() {
                     authors = item.volumeInfo.authors;
                 }
 
+                let isbn = "";
+                if (item.volumeInfo.industryIdentifiers) {
+                    const identifierArray = item.volumeInfo.industryIdentifiers;
+                    const filteredIdentifiers = identifierArray.filter((identifier) => identifier.type === "ISBN_13");
+                    // Checking to see if the book has isbn_13 set
+
+                    if (filteredIdentifiers) {
+                        const identifierObject = filteredIdentifiers[0]
+                        if (identifierObject) {
+                            isbn = identifierObject.identifier
+                        }
+                    }
+                }
+
                 return (
-                    <div key={item.id}>
+                    <SearchContainer key={item.id} >
                         <BookCard
                             id={item.id}
                             thumbnail={thumbnail}
@@ -50,11 +65,18 @@ function SearchBar() {
                             pageCount={item.volumeInfo.pageCount}
                             authors={authors}
                             publisher={item.volumeInfo.publisher}
-                            isbn={item.volumeInfo.industryIdentifiers.identifier}
+                            isbn={isbn}
                             description={item.volumeInfo.description}
                             infoLink={item.volumeInfo.infoLink}
                         />
-                    </div>
+                        <AddButton 
+                            title={item.volumeInfo.title}
+                            author={authors}
+                            genre={item.volumeInfo.categories}
+                            isbn={isbn}
+                        />
+                        
+                    </SearchContainer>
                 );
             });
             return (
@@ -64,6 +86,9 @@ function SearchBar() {
             );
         }
     }
+    const searchCards = handleCards();
+
+
 
     return (
         <>
@@ -79,7 +104,7 @@ function SearchBar() {
                     />
                     <Button>Search</Button>
                 </Form>
-                {handleCards()}
+                {searchCards}
             </StyledSearch>
         </>
     )
@@ -150,11 +175,17 @@ const Button = styled.button`
     }
 `;
 
-const BookContainer = styled.button`
+const BookContainer = styled.div`
     display: flex;
     flex-direction: column;
-    border: none;
-    gap: 1em;
+    gap: 1.5em;
+    color: rgb(106,20,72);
+`;
+
+const SearchContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+    border: 3px solid #D6D0C4;
 `;
 
 

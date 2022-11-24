@@ -183,7 +183,7 @@ export default function MiniDrawer() {
                 </DrawerHeader>
                 <Divider />
                 <List>
-                    <ListItem onClick={() => {console.log("login")}} key='Log In' disablePadding sx={{ display: 'block' }}>
+                    <ListItem onClick={() => {console.log("login")}} component={Link} to="/login" key='Log In' disablePadding sx={{ display: 'block' }}>
                             <ListItemButton
                                 sx={{
                                     minHeight: 48,
