@@ -1,19 +1,19 @@
-# CIS 3296: Book Review Web Application Project
+# Book'd and Rated
 
-This is a README file for our CIS 3296 Course Project.
+Book'd and Rated is a web application where users are provided a platform to track their reading history as well as leave reviews for various books. After creating an account, the user can create a list of books read or plan to read and/or leave reviews on each book.  
 
-### Trello Board
-https://trello.com/b/YncmQM2F/sprint
+### Project Board
+Link to [project board](https://trello.com/b/YncmQM2F/sprint)
 
-### Description of Project:
-A web application that allows users to rate books, write reviews, track reading history, and see statistical data on the most read genres.
+### Installation
+1. Install node through [this link](https://nodejs.org/en/) if it isn't downloaded on device already
 
-### Members:
-* Ben Baldino
-* Tugs Khaliunbat
-* Steven Lin
-* Brian Rangel
-* Destinee Sheung
+2. Install dependencies under package.json found in front-end folder with `npm install`
+
+>  Note: Material UI v5 is used as a part of the frontend and only works with React 17.0.2. There will be an error with any version of React 18 and above. Currently, the issue has yet to be resolved by the developers of Material UI.
+![npm install error](InstallationError.jpg)
+> If the above error appears enter `npm config set legacy-peer-deps true` and `npm i`.
+> The error is caused by the incompatibilities of the dependencies.
 
 ### Testing Instructions:
 1. To test our program, go to the "Releases" tab on the right side of this GitHub page and download the executable JAR file. 
