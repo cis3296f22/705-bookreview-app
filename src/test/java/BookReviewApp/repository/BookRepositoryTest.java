@@ -1,13 +1,19 @@
 package BookReviewApp.repository;
 
 import BookReviewApp.model.Book;
+import BookReviewApp.service.BookService;
+import BookReviewApp.service.UserService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.boot.test.context.SpringBootTest;
 
-@DataJpaTest
+import static org.assertj.core.api.Assertions.assertThat;
+
+
+@SpringBootTest
 class BookRepositoryTest {
     @Autowired
     BookRepository bookRepository;
@@ -39,7 +45,4 @@ class BookRepositoryTest {
         bookRepository.delete(aBook);
         Assertions.assertNotNull(aBook.getBookId());
     }
-
-
-
 }
