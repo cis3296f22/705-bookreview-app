@@ -15,10 +15,9 @@ function App(){
 
   const [ token, setToken ] = useToken();
 
-  console.log(token)
+  // console.log(token)
 
   if(!token) {
-    console.log("still no token")
     return <Login setToken={setToken}/>
   }
 
@@ -32,7 +31,7 @@ function App(){
         {/* <Route path='/login' element={<Login />} /> */}
         <Route path='/search' element={<SearchBar token={token}/>} />
         <Route path='/' element={<Home />} />
-        <Route path='/shelves' element={<BookShelf />} />
+        <Route path='/shelves' element={<BookShelf token={token}/>} />
       </Routes>
     {/* </BrowserRouter> */}
     

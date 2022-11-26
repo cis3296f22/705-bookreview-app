@@ -36,7 +36,7 @@ export default function Login({ setToken }) {
         else {
             token = await handleGet()
         }
-        console.log(token)
+        // console.log(token)
         setToken(token);
     }
 

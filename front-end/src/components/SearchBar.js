@@ -25,12 +25,14 @@ function SearchBar(token) {
             setLoading(true)
             console.log(err)
         }
+
     }
 
     const handleCards = () => {
         if (loading) {
             return <div>Fetching results...</div>;
         } else {
+            console.log(cards);
             const items = cards.map((item, i) => {
                 let thumbnail = '';
                 if (item.volumeInfo.imageLinks) {
