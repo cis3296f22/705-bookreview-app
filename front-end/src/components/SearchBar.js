@@ -117,12 +117,12 @@ function SearchBar(token) {
 export default SearchBar;
 
 const StyledSearch = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    @media only screen and (max-width: 600px) {
-        padding: 1em;
-    }
+display: flex;
+flex-direction: column;
+align-items: center;
+@media only screen and (max-width: 600px) {
+    padding: 1em;
+}
 `;
 
 const Title = styled.div`

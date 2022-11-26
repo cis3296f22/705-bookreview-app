@@ -1,4 +1,4 @@
-import { Button, Menu, MenuItem } from '@mui/material';
+import { Button, Menu, MenuItem, Tooltip } from '@mui/material';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import * as React from 'react';
 
@@ -36,17 +36,19 @@ export default function AddButton({ title, author, isbn, genre, token }) {
 
     return (
         <div>
-            <Button
-                title='Choose Shelf'
-                id="demo-positioned-button"
-                aria-controls={open ? 'demo-positioned-menu' : undefined}
-                aria-haspopup="true"
-                aria-expanded={open ? 'true' : undefined}
-                onClick={handleClick}
-                endIcon={<KeyboardArrowDownIcon />}
-            >
-                Add
-            </Button>
+            <Tooltip title="Choose Shelf" placement='bottom' arrow>
+                <Button
+                    // title='Choose Shelf'
+                    id="demo-positioned-button"
+                    aria-controls={open ? 'demo-positioned-menu' : undefined}
+                    aria-haspopup="true"
+                    aria-expanded={open ? 'true' : undefined}
+                    onClick={handleClick}
+                    endIcon={<KeyboardArrowDownIcon />}
+                >
+                    Add
+                </Button>
+            </Tooltip>
             <Menu
                 id="demo-positioned-menu"
                 aria-labelledby="demo-positioned-button"
