@@ -15,7 +15,7 @@ Link to [project board](https://trello.com/b/YncmQM2F/sprint)
 > If the above error appears enter `npm config set legacy-peer-deps true` and `npm i`.
 > The error is caused by the incompatibilities of the dependencies.
 
-3. `npm start` to run program while also running the BookReviewApp file
+3. Run the BookReviewApp and then `npm start` to run program. Both must be running at the same time to work.
 
 ### Accessing the Database
 1. Run the BookReviewApp file
