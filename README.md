@@ -15,7 +15,11 @@ Link to [project board](https://trello.com/b/YncmQM2F/sprint)
 > If the above error appears enter `npm config set legacy-peer-deps true` and `npm i`.
 > The error is caused by the incompatibilities of the dependencies.
 
-3. Run the BookReviewApp and then `npm start` to run program. Both must be running at the same time to work.
+### How to Run
+1. Run the BookReviewApp (the backend)
+2. `npm start`
+>Note: The backend needs to be running in order for the frontend to run properly. Frontend runs on port 3000 while backend runs on port 8080.
+
 
 ### Accessing the Database
 1. Run the BookReviewApp file
