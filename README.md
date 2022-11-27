@@ -15,6 +15,16 @@ Link to [project board](https://trello.com/b/YncmQM2F/sprint)
 > If the above error appears enter `npm config set legacy-peer-deps true` and `npm i`.
 > The error is caused by the incompatibilities of the dependencies.
 
+3. `npm start` to run program while also running the BookReviewApp file
+
+### Accessing the Database
+1. Run the BookReviewApp file
+2. Access the database through localhost:8080/h2-console
+3. Ensure JDBC URL:`jdbc:h2~/bookDB`
+![Accessing Database image](AccessingDatabase.jpg)
+
+4. Enter `123` as the password
+
 ### Testing Instructions:
 1. To test our program, go to the "Releases" tab on the right side of this GitHub page and download the executable JAR file. 
 2. Go to your command-line and cd into the directory where the JAR file is downloaded.
