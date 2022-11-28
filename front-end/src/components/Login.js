@@ -36,7 +36,7 @@ export default function Login({ setToken }) {
         else {
             token = await handleGet()
         }
-        console.log("handlesubmit token", token)
+        // console.log("handlesubmit token", token)
         setToken(token);
     }
 
@@ -59,16 +59,15 @@ export default function Login({ setToken }) {
 
         return fetch("http://localhost:8080/user/create", requestOptions)
             .then(response => {
-                const data = response.json()
-                if (data === 0) {
+                if (!response.data) {
                     setAlert(true);
                 }
-                return data;
+                return response.json();
             })
             .catch(error => console.log('error', error));
     }
 
-    async function handleGet() {
+    const handleGet = async() => {
         var requestOptions = {
             method: 'GET',
             redirect: 'follow'
@@ -76,13 +75,13 @@ export default function Login({ setToken }) {
 
         return fetch(`http://localhost:8080/user/login/${inputs.email}/${inputs.password}`, requestOptions)
             .then(response => {
-                const data = response.json()
-                if (data === 0) {
+                if (!response.data) {
                     setAlert(true);
                 }
-                return data;
+                return response.json();
             })
             .catch(error => console.log('error', error));
+        
     }
 
 

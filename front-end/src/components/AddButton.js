@@ -64,8 +64,8 @@ export default function AddButton({ title, author, isbn, genre, token }) {
                     horizontal: 'left',
                 }}
             >
-                <MenuItem onClick={() => {handleAdd(0)}}> Finished Reading</MenuItem>
-                <MenuItem onClick={() => {handleAdd(1)}}>Want to Read</MenuItem>
+                <MenuItem onClick={() => {handleAdd(1)}}> Finished Reading</MenuItem>
+                <MenuItem onClick={() => {handleAdd(0)}}>Want to Read</MenuItem>
             </Menu>
         </div>
     );
