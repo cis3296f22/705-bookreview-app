@@ -9,10 +9,15 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin
 @RequestMapping("/review")
 public class ReviewController {
+
     @Autowired
     ReviewService reviewService;
 
-    /** Create a review (No error handling yet) **/
+    /**
+     * Create a review
+     * @param review - Review object
+     * @return saved review object
+     */
     @PostMapping("create")
     public Review createReview(@RequestBody Review review) {
         return reviewService.createReview(review);

@@ -24,8 +24,6 @@ public class User {
     private String userName;
 
     @Column(name = "password")
-    /** uncomment for password encryption. might break code**/
-//    @Convert(converter = AesEncryptor.class)
     private String password;
 
     @Column(name = "email")
@@ -44,60 +42,13 @@ public class User {
             joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "userId"), // user id in the join table
             inverseJoinColumns = @JoinColumn(name = "book_id", referencedColumnName = "bookId") // book id in the join table
     )
-
     private List<Book> bookList; // adding a book to this list will save user to book relationship
 
+    /**
+     * Adds a book to a user by updating the bookList
+     * @param book - Book object
+     */
     public void addBook(Book book) {
         bookList.add(book);
     }
-
-    /**  getters and setters replaced with lombok annotations **/
-
-//    public void setReviews(List<Review> reviews) {
-//        this.reviews = reviews;
-//    }
-//
-//    public void setUserId(long userId) {
-//        this.userId = userId;
-//    }
-//
-//    public String getUserName() {
-//        return userName;
-//    }
-//
-//    public void setUserName(String userName) {
-//        this.userName = userName;
-//    }
-//
-//    public String getPassword() {
-//        return password;
-//    }
-//
-//    public void setPassword(String password) {
-//        this.password = password;
-//    }
-//
-//    public String getEmail() {
-//        return email;
-//    }
-//
-//    public void setEmail(String email) {
-//        this.email = email;
-//    }
-//
-//    public String getAge() {
-//        return age;
-//    }
-//
-//    public void setAge(String age) {
-//        this.age = age;
-//    }
-//
-//    public long getUserId() {
-//        return userId;
-//    }
-//
-//    public List<Review> getReviews() {
-//        return reviews;
-//    }
 }
