@@ -74,6 +74,11 @@ export default function Login({ setToken }) {
 
         return fetch(`http://localhost:8080/user/login/${inputs.email}/${inputs.password}`, requestOptions)
             .then(response => response.json())
+            .then(data => {     
+                if(data === 0){
+                    setAlert(true);
+                } 
+            })
             // .then(result => console.log(result))
             .catch(error => console.log('error', error));
     }
