@@ -24,6 +24,9 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long bookId;
 
+    @Column(name = "ISBN")
+    private Long isbn;
+
     @Column(name = "title")
     private String title;
 
@@ -32,6 +35,9 @@ public class Book {
 
     @Column(name = "genre")
     private String genre;
+
+    @Column(name = "shelfId")
+    private Integer shelfId;
 
     @JsonIgnore
     @OneToMany(mappedBy = "book")

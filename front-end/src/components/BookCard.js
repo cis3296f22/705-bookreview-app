@@ -2,7 +2,7 @@ import { useState } from 'react';
 // import * as React from 'react';
 import styled from 'styled-components';
 import Modal from 'styled-react-modal'
-import { Button } from '@mui/material';
+// import Axios from 'axios';
 // import Button from '@mui/material/Button';
 
 function BookCard(props) {
@@ -16,12 +16,35 @@ function BookCard(props) {
         publisher
     } = props;
 
+    // const [alert, setAlert] = useState(false);
     const formattedAuthors = (authors) => {
         if (authors.length > 1) {
             return `${authors[0]}, ${authors[1]}`
         }
         else return authors
     }
+
+    // const handleAdd = () => {
+    //     console.log("add clicked")
+    //     const endpoint = "http://localhost:8080/book/add"
+    //     Axios.post(endpoint, {
+    //         title: JSON.stringify(title),
+    //         isbn: JSON.stringify(isbn),
+    //         author: JSON.stringify(authors),
+    //         genre: JSON.stringify(categories),
+    //         shelfId: JSON.stringify(0)
+    //     }).then(response => {
+    //         if (response.data === 0) { // failed adding a book
+    //             console.log("add failed")
+    //             setAlert(true)
+    //         }
+    //         else {
+    //             console.log("sucessfully added book"); // successfully added
+    //             setAlert(false)
+    //         }
+    //         //console.log();
+    //     }).catch(error=> {})
+    // }
 
     const [isOpen, setIsOpen] = useState(false)
     const toggleModal = () => setIsOpen(!isOpen)
@@ -35,9 +58,6 @@ function BookCard(props) {
                     <Authors>by {formattedAuthors(authors)}</Authors>
                     <Category>{categories}</Category>
                 </Info>
-                    <Button sx={{ marginLeft:"auto"}}>
-                        Add
-                    </Button>
             </StyledBookCard>
             <StyledModal
                 isOpen={isOpen}
@@ -80,7 +100,6 @@ const StyledBookCard = styled.div`
     display: flex;
     border-bottom: 1px solid #E8E8E8;
     width: 50vw;
-    padding-bottom: 1em;
     @media only screen and (max-width: 600px) {
         width: 70vw;
     }

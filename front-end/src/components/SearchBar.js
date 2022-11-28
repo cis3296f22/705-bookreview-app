@@ -1,10 +1,11 @@
-import AppBar from "./AppBar"
+// import AppBar from "./AppBar"
 import styled from 'styled-components';
 import BookCard from './BookCard';
 import { useState } from 'react';
+import AddButton from './AddButton';
 
-
-function SearchBar() {
+function SearchBar(token) {
+    console.log(token)
     const [searchValue, setSearchValue] = useState('');
     const [cards, setCards] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -26,6 +27,7 @@ function SearchBar() {
             setLoading(true)
             console.log(err)
         }
+
     }
     function onCategoryChange(e) {
         const selectedCategory = e.target.value;
@@ -36,6 +38,7 @@ function SearchBar() {
         if (loading) {
             return <div>Fetching results...</div>;
         } else {
+            console.log(cards);
             const items = cards.map((item, i) => {
                 let thumbnail = '';
                 if (item.volumeInfo.imageLinks) {
@@ -47,8 +50,22 @@ function SearchBar() {
                     authors = item.volumeInfo.authors;
                 }
 
+                let isbn = "";
+                if (item.volumeInfo.industryIdentifiers) {
+                    const identifierArray = item.volumeInfo.industryIdentifiers;
+                    const filteredIdentifiers = identifierArray.filter((identifier) => identifier.type === "ISBN_13");
+                    // Checking to see if the book has isbn_13 set
+
+                    if (filteredIdentifiers) {
+                        const identifierObject = filteredIdentifiers[0]
+                        if (identifierObject) {
+                            isbn = identifierObject.identifier
+                        }
+                    }
+                }
+
                 return (
-                    <div key={item.id}>
+                    <SearchContainer key={item.id} >
                         <BookCard
                             id={item.id}
                             thumbnail={thumbnail}
@@ -57,21 +74,35 @@ function SearchBar() {
                             pageCount={item.volumeInfo.pageCount}
                             authors={authors}
                             publisher={item.volumeInfo.publisher}
+                            isbn={isbn}
                             description={item.volumeInfo.description}
                             infoLink={item.volumeInfo.infoLink}
                         />
-                    </div>
+                        <AddButton 
+                            title={item.volumeInfo.title}
+                            author={authors}
+                            genre={item.volumeInfo.categories}
+                            isbn={isbn}
+                            token={token}
+                        />
+                        
+                    </SearchContainer>
                 );
             });
             return (
-                <BookContainer>{items}</BookContainer>
+                <BookContainer>
+                    {items}
+                </BookContainer>
             );
         }
     }
+    const searchCards = handleCards();
+
+
 
     return (
         <>
-            <AppBar />
+            {/* <AppBar /> */}
             <StyledSearch>
                 <Title>Search</Title>
                 <Form onSubmit={handleSearch}>
@@ -146,10 +177,7 @@ function SearchBar() {
                         
                     </select>
                 </div>
-
-
-                   
-                {handleCards()}
+                {searchCards}
             </StyledSearch>
         </>
     )
@@ -158,12 +186,12 @@ function SearchBar() {
 export default SearchBar;
 
 const StyledSearch = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    @media only screen and (max-width: 600px) {
-        padding: 1em;
-    }
+display: flex;
+flex-direction: column;
+align-items: center;
+@media only screen and (max-width: 600px) {
+    padding: 1em;
+}
 `;
 
 const Title = styled.div`
@@ -220,11 +248,17 @@ const Button = styled.button`
     }
 `;
 
-const BookContainer = styled.button`
+const BookContainer = styled.div`
     display: flex;
     flex-direction: column;
-    border: none;
-    gap: 1em;
+    gap: 1.5em;
+    color: rgb(106,20,72);
+`;
+
+const SearchContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+    border: 3px solid #D6D0C4;
 `;
 
 

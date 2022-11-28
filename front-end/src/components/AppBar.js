@@ -16,12 +16,13 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import AccountCircle from '@mui/icons-material/AccountCircle';
+import FaceRoundedIcon from '@mui/icons-material/FaceRounded';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
-import LoginIcon from '@mui/icons-material/Login';
+import VpnKeyTwoToneIcon from '@mui/icons-material/VpnKeyTwoTone';
 import SearchIcon from '@mui/icons-material/Search';
-import BookIcon from '@mui/icons-material/Book';
+import ImportContactsRoundedIcon from '@mui/icons-material/ImportContactsRounded';
+import CottageRoundedIcon from '@mui/icons-material/CottageRounded';
 
 
 
@@ -99,7 +100,7 @@ export default function MiniDrawer() {
 
     const [anchorEl, setAnchorEl] = React.useState(null);
 
-    const iconArray = [<LoginIcon />, <SearchIcon />, <BookIcon />]
+    const iconArray = [<VpnKeyTwoToneIcon />, <SearchIcon />, <ImportContactsRoundedIcon />, <CottageRoundedIcon/>]
     const handleMenu = (event) => {
         setAnchorEl(event.currentTarget);
     };
@@ -139,7 +140,7 @@ export default function MiniDrawer() {
                         <MenuIcon />
                     </IconButton>
                     <Typography variant="h6" noWrap component="div">
-                        Book Review Application
+                        book'd & rate'd
                     </Typography>
 
                     <div>
@@ -151,7 +152,7 @@ export default function MiniDrawer() {
                             onClick={handleMenu}
                             color="inherit"
                         >
-                            <AccountCircle />
+                            <FaceRoundedIcon />
                         </IconButton>
                         <Menu
                             id="menu-appbar"
@@ -168,7 +169,7 @@ export default function MiniDrawer() {
                             open={Boolean(anchorEl)}
                             onClose={handleClose}
                         >
-                            <MenuItem onClick={handleClose}>Profile</MenuItem>
+                            {/* <MenuItem onClick={handleClose}>Profile</MenuItem> */}
                             <MenuItem onClick={handleClose}>My account</MenuItem>
                         </Menu>
                     </div>
@@ -183,76 +184,97 @@ export default function MiniDrawer() {
                 </DrawerHeader>
                 <Divider />
                 <List>
-                    <ListItem onClick={() => {console.log("login")}} key='Log In' disablePadding sx={{ display: 'block' }}>
-                            <ListItemButton
+                    <ListItem onClick={() => { console.log("home") }} component={Link} to="/home" key='Home' disablePadding sx={{ display: 'block' }}>
+                        <ListItemButton
+                            sx={{
+                                minHeight: 48,
+                                justifyContent: open ? 'initial' : 'center',
+                                px: 2.5,
+                            }}
+                        >
+                            <ListItemIcon
                                 sx={{
-                                    minHeight: 48,
-                                    justifyContent: open ? 'initial' : 'center',
-                                    px: 2.5,
+                                    minWidth: 0,
+                                    mr: open ? 3 : 'auto',
+                                    justifyContent: 'center',
                                 }}
                             >
-                                <ListItemIcon 
-                                    sx={{
-                                        minWidth: 0,
-                                        mr: open ? 3 : 'auto',
-                                        justifyContent: 'center',
-                                    }}
-                                >
-                                    {iconArray[0]}
+                                {iconArray[3]}
 
-                                </ListItemIcon>
+                            </ListItemIcon>
 
-                                <ListItemText primary={'Log In'} sx={{ opacity: open ? 1 : 0 }} />
-                            </ListItemButton>
+                            <ListItemText primary={'home'} sx={{ opacity: open ? 1 : 0 }} />
+                        </ListItemButton>
                     </ListItem>
-
-                    <ListItem onClick={() => {console.log("search")} } component={Link} to="/search" key='Search' disablePadding sx={{ display: 'block' }}>
-                            <ListItemButton
+                    <ListItem onClick={() => { console.log("search") }} component={Link} to="/search" key='Search' disablePadding sx={{ display: 'block' }}>
+                        <ListItemButton
+                            sx={{
+                                minHeight: 48,
+                                justifyContent: open ? 'initial' : 'center',
+                                px: 2.5,
+                            }}
+                        >
+                            <ListItemIcon
                                 sx={{
-                                    minHeight: 48,
-                                    justifyContent: open ? 'initial' : 'center',
-                                    px: 2.5,
+                                    minWidth: 0,
+                                    mr: open ? 3 : 'auto',
+                                    justifyContent: 'center',
                                 }}
                             >
-                                <ListItemIcon 
-                                    sx={{
-                                        minWidth: 0,
-                                        mr: open ? 3 : 'auto',
-                                        justifyContent: 'center',
-                                    }}
-                                >
-                                    {iconArray[1]}
+                                {iconArray[1]}
 
-                                </ListItemIcon>
+                            </ListItemIcon>
 
-                                <ListItemText primary={'Search'} sx={{ opacity: open ? 1 : 0 }} />
-                            </ListItemButton>
+                            <ListItemText primary={'search books'} sx={{ opacity: open ? 1 : 0 }} />
+                        </ListItemButton>
                     </ListItem>
 
-                    <ListItem onClick={() => {console.log("book shelves")}} key='Book Shelves' disablePadding sx={{ display: 'block' }}>
-                            <ListItemButton
+                    <ListItem onClick={() => { console.log("book shelves") }} component={Link} to="/shelves" key='Book Shelves' disablePadding sx={{ display: 'block' }}>
+                        <ListItemButton
+                            sx={{
+                                minHeight: 48,
+                                justifyContent: open ? 'initial' : 'center',
+                                px: 2.5,
+                            }}
+                        >
+                            <ListItemIcon
                                 sx={{
-                                    minHeight: 48,
-                                    justifyContent: open ? 'initial' : 'center',
-                                    px: 2.5,
+                                    minWidth: 0,
+                                    mr: open ? 3 : 'auto',
+                                    justifyContent: 'center',
                                 }}
                             >
-                                <ListItemIcon 
-                                    sx={{
-                                        minWidth: 0,
-                                        mr: open ? 3 : 'auto',
-                                        justifyContent: 'center',
-                                    }}
-                                >
-                                    {iconArray[2]}
+                                {iconArray[2]}
 
-                                </ListItemIcon>
+                            </ListItemIcon>
 
-                                <ListItemText primary={'Book Shelves'} sx={{ opacity: open ? 1 : 0 }} />
-                            </ListItemButton>
+                            <ListItemText primary={'bookshelves'} sx={{ opacity: open ? 1 : 0 }} />
+                        </ListItemButton>
                     </ListItem>
-                        
-                
+                    <ListItem onClick={() => { console.log("login") }} component={Link} to="/login" key='Log In' disablePadding sx={{ display: 'block' }}>
+                        <ListItemButton
+                            sx={{
+                                minHeight: 48,
+                                justifyContent: open ? 'initial' : 'center',
+                                px: 2.5,
+                            }}
+                        >
+                            <ListItemIcon
+                                sx={{
+                                    minWidth: 0,
+                                    mr: open ? 3 : 'auto',
+                                    justifyContent: 'center',
+                                }}
+                            >
+                                {iconArray[0]}
+
+                            </ListItemIcon>
+
+                            <ListItemText primary={'log in'} sx={{ opacity: open ? 1 : 0 }} />
+                        </ListItemButton>
+                    </ListItem>
+
+
                 </List>
                 <Divider />
                 {/* <List>

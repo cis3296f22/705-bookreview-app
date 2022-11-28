@@ -1,10 +1,11 @@
 //import Header from "./Header"
-import AppBar from "./AppBar"
+// import AppBar from "./AppBar"
 
 function homepage() {
     return (
         // <><Header />
-        <AppBar />
+        // <AppBar />
+        <></>
 
     )
 }

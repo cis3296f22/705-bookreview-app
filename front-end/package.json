@@ -3,15 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@auth0/auth0-react": "^1.12.0",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@mui/icons-material": "^5.10.9",
+    "@mui/lab": "^5.0.0-alpha.109",
     "@mui/material": "^5.10.13",
     "@mui/styled-engine-sc": "^5.10.6",
-    "axios": "^1.1.3",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^12.0.4",
     "@testing-library/user-event": "^12.0.9",
+    "axios": "^1.1.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-modal": "^3.16.1",
@@ -44,5 +46,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2"
   }
 }
