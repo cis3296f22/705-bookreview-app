@@ -4,8 +4,6 @@ import styled from 'styled-components';
 import Modal from 'styled-react-modal'
 // import Axios from 'axios';
 // import Button from '@mui/material/Button';
-import Box from '@mui/material/Box'
-import Stack from '@mui/material/Stack';
 
 function BookCard(props) {
     const {
@@ -53,7 +51,7 @@ function BookCard(props) {
 
     return (
         <>
-            <StyledBookCard>\
+            <StyledBookCard>
                 <Thumbnail src={thumbnail}></Thumbnail>
                 <Info>
                     <Title>{title}</Title>

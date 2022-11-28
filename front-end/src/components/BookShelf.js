@@ -33,8 +33,10 @@ export default function BookShelf(token) {
                 isbnarray.map(async (isbn) => {
                     const apiresponse = await fetch(`https://www.googleapis.com/books/v1/volumes?q=isbn:${isbn}`)
                     const apidata = await apiresponse.json()
-                    //console.log("apidata: ", apidata)
-                    books.push(apidata.items[0])
+                    console.log("apidata: ", apidata)
+                    if(apidata.totalItems !== 0){
+                        books.push(apidata.items[0])
+                    }
                     //console.log("apiarray:", apiarray)
                 })
             ).then(function () {
@@ -178,49 +180,49 @@ const Title = styled.div`
     }
 `;
 
-const Form = styled.form`
-    background-color: rgb(238,238,238);
-    display: flex;
-    justify-content: center;
-    padding: 1em;
-    gap: 0.5em;
-    width: 48vw;
-    margin-bottom: 1em;
-    border-radius: 5px;
-    @media only screen and (max-width: 600px) {
-        width: 15em;
-    }
-`;
+// const Form = styled.form`
+//     background-color: rgb(238,238,238);
+//     display: flex;
+//     justify-content: center;
+//     padding: 1em;
+//     gap: 0.5em;
+//     width: 48vw;
+//     margin-bottom: 1em;
+//     border-radius: 5px;
+//     @media only screen and (max-width: 600px) {
+//         width: 15em;
+//     }
+// `;
 
-const Input = styled.input`
-    font-family: sans-serif;
-    width: 45em;
-    height: 1em;
-    padding: 0.5em;
-    border-radius: 3px;
-    font-size: 14px;
-    border: 1px solid #DCD6CC;
-    @media only screen and (max-width: 600px) {
-        width: 18em;
-        font-size: 10px;
-    }
-`;
+// const Input = styled.input`
+//     font-family: sans-serif;
+//     width: 45em;
+//     height: 1em;
+//     padding: 0.5em;
+//     border-radius: 3px;
+//     font-size: 14px;
+//     border: 1px solid #DCD6CC;
+//     @media only screen and (max-width: 600px) {
+//         width: 18em;
+//         font-size: 10px;
+//     }
+// `;
 
-const Button = styled.button`
-    border: 1px solid #D6D0C4;  
-    padding: 0.4em;
-    font-size: 14px;
-    color: rgb(55,34,19);
-    border-radius: 3px;
-    font-family: sans-serif;
-    align-self: center;
-    &:hover {
-        cursor: pointer;
-    }
-    @media only screen and (max-width: 600px) {
-        font-size: 10px;
-    }
-`;
+// const Button = styled.button`
+//     border: 1px solid #D6D0C4;  
+//     padding: 0.4em;
+//     font-size: 14px;
+//     color: rgb(55,34,19);
+//     border-radius: 3px;
+//     font-family: sans-serif;
+//     align-self: center;
+//     &:hover {
+//         cursor: pointer;
+//     }
+//     @media only screen and (max-width: 600px) {
+//         font-size: 10px;
+//     }
+// `;
 
 const BookContainer = styled.div`
     display: flex;
