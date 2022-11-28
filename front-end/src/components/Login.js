@@ -60,6 +60,7 @@ export default function Login({ setToken }) {
         return fetch("http://localhost:8080/user/create", requestOptions)
             .then(response => {
                 if (!response.data) {
+                    console.log("test");
                     setAlert(true);
                 }
                 return response.json();

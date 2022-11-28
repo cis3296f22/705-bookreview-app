@@ -16,34 +16,54 @@ import java.util.List;
 public class BookService {
 
     /** The service class is called by the controller class to perform tasks **/
-
     @Autowired
     BookRepository bookRepository;
 
     @Autowired
     UserRepository userRepository;
 
-    /** Get all books **/
+    /**
+     * Find all books
+     * @return list of all books belonging to all users
+     */
     public List<Book> getAll() {
         return bookRepository.findAll();
     }
 
+    /**
+     * Find book by shelf (unused)
+     * @param shelfId - The shelf Id belonging to a book object
+     * @return list of all books with specified shelf id
+     */
     public List<Book> findAllByShelf(Integer shelfId) {
         return bookRepository.findAllByShelfId(shelfId);
     }
 
-    /** Add a book **/
+    /**
+     * Adding new book
+     * @param book - The book object
+     * @return String
+     */
     public String addBook(Book book) {
         bookRepository.save(book);
         return String.format("Successfully Added %s.", book.getTitle());
     }
 
-    /** Get a book **/
+    /**
+     * Find book by title
+     * @param title - Title of the book object
+     * @return saved book object
+     */
     public Book getBook(String title) {
         return bookRepository.findByTitle(title);
     }
 
-    /**  Update a Book **/
+    /**
+     * Update Book
+     * @param bookId - Book object's Id
+     * @param book - Book object with new fields to update original
+     * @return String
+     */
     public String updateBook(@PathVariable Long bookId, @RequestBody Book book) {
         Book updatedBook = bookRepository.findById(bookId).get();
         updatedBook.setAuthor(book.getAuthor());
@@ -55,14 +75,23 @@ public class BookService {
         return String.format("Book ID: %d has been updated.", updatedBook.getBookId());
     }
 
-    /**  Delete a Book By Id **/
+    /**
+     * Delete a Book By Id
+     * @param bookId - Book object's id
+     * @return String
+     */
     @Transactional
     public String deleteBookById(Long bookId) {
         bookRepository.deleteById(bookId);
         return String.format("Book ID: %d has been deleted.", bookId);
     }
 
-    /** Removes a book from a user **/
+    /**
+     * Removes a book from a user (unused)
+     * @param userId - User object's Id
+     * @param bookTitle - Book object's Title
+     * @return Book object's Id
+     */
     @Transactional
     public Long removeBookFromUser(Long userId, String bookTitle) {
         Long bookId = null;
@@ -77,6 +106,11 @@ public class BookService {
         return bookId;
     }
 
+    /**
+     * checks for duplicate books (unused)
+     * @param book - Book object
+     * @return Boolean
+     */
     public boolean containsDuplicate(Book book) {
         return bookRepository.existsById(book.getBookId());
     }

@@ -12,47 +12,67 @@ import java.util.List;
 @CrossOrigin
 @RequestMapping("/user")
 public class UserController {
+
     @Autowired
     UserService userService;
 
-    /** Creating a New User **/
+    /**
+     * Creating a New User
+     * @param user - User object
+     * @return user object's id
+     */
     @PostMapping("/create")
     public Long createUser(@RequestBody User user) {
         boolean userExists = userService.containsDuplicateUser(user.getUserName(), user.getEmail());
         return userExists == true ? Long.valueOf(0) : userService.createUser(user);
     }
 
-    /** Not sure what situation we would need to look up a user. maybe in settings in order to change something? **/
-//    @GetMapping("/find/{userName}")
-//    public User getUser(@PathVariable String userName) {
-//        return userService.findUser(userName);
-//    }
-
-    /** Finds All Users (Dont need?) **/
+    /**
+     * Finds All Users
+     * @return list of all user object
+     */
     @GetMapping("/find/all")
     public List<User> getAllUser() {
         return userService.findAllUser();
     }
 
-    /** Delete a User **/
+    /**
+     * Delete a User
+     * @param userName - User object's username
+     * @return String
+     */
     @DeleteMapping("delete/{userName}")
     public String deleteUser(@PathVariable String userName) {
         return userService.deleteUser(userName);
     }
 
-    /** Adds a Book To a User **/
+    /**
+     * Adds a Book To a User
+     * @param userId - User object's id
+     * @param book - Book object
+     * @return Boolean
+     */
     @PostMapping("add/{userId}")
     public boolean addBook(@PathVariable Long userId, @RequestBody Book book) {
         return userService.addBook(userId, book);
     }
 
-    /** Find All Books belonging To a User (Called when viewing bookshelf to render all books belonging to a user) **/
+    /**
+     * Find All Books belonging To a User
+     * @param userId - User object's id
+     * @return list of books belonging to userId
+     */
     @GetMapping("get/{userId}")
     public List<Book> getUserBooks(@PathVariable Long userId) {
         return userService.getUserBooks(userId);
     }
 
-    /** Verify User Login **/
+    /**
+     * Verify User Login
+     * @param email - User object's email
+     * @param password - User object's password
+     * @return user object's id
+     */
     @GetMapping("/login/{email}/{password}")
     public Long userLogin(@PathVariable String email, @PathVariable String password) {
         return userService.userLogin(email, password);

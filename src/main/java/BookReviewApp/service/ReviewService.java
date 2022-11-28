@@ -11,6 +11,11 @@ public class ReviewService {
     @Autowired
     ReviewRepository reviewRepository;
 
+    /**
+     * Creates a book review
+     * @param review - Review object
+     * @return Saved review object
+     */
     public Review createReview(Review review) {
         return reviewRepository.save(review);
     }

@@ -20,8 +20,6 @@ public class Review {
     @Column(name = "report")
     private String report;
 
-
-
     @Column(name = "user_id")
     private long _userId;
 
@@ -37,52 +35,87 @@ public class Review {
     @JoinColumn(name = "book_id", referencedColumnName = "bookId", insertable = false, updatable = false) // user_fk is a column name referenceing user id in review table
     private Book book;
 
+    /**
+     * @return
+     */
     public String getReport() {
         return report;
     }
 
+    /**
+     * @param report
+     */
     public void setReport(String report) {
         this.report = report;
     }
 
+    /**
+     * @return
+     */
     public long getReviewId() {
         return reviewId;
     }
 
+    /**
+     * @param reviewId
+     */
     public void setReviewId(long reviewId) {
         this.reviewId = reviewId;
     }
 
+    /**
+     * @return
+     */
     public User getUser() {
         return user;
     }
 
+    /**
+     * @param user
+     */
     public void setUser(User user) {
         this.user = user;
     }
 
+    /**
+     * @return
+     */
     public Book getBook() {
         return book;
     }
 
+    /**
+     * @param book
+     */
     public void setBook(Book book) {
         this.book = book;
     }
 
+    /**
+     * @return
+     */
     public long get_userId() {
         return _userId;
     }
 
+    /**
+     * @param _userId
+     */
     public void set_userId(long _userId) {
         this._userId = _userId;
     }
 
+    /**
+     * @return
+     */
     public long get_bookId() {
         return _bookId;
     }
 
+    /**
+     * @param _bookId
+     */
     public void set_bookId(long _bookId) {
         this._bookId = _bookId;
     }
-
 }
