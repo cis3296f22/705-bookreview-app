@@ -27,7 +27,7 @@ export default function AddButton({ title, author, isbn, genre, token }) {
             redirect: 'follow'
         };
         console.log(token)
-        fetch(`http://localhost:8080/user/add/${token.token}`, requestOptions)
+        fetch(`https://bookdandrated.herokuapp.com/user/add/${token.token}`, requestOptions)
             .then(response => response.text())
             .then(result => console.log(result))
             .catch(error => console.log('error', error));
