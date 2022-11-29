@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/705-bookreview-app/static/css/main.01923a39.css",
+    "main.js": "/705-bookreview-app/static/js/main.ce4ebdbd.js",
+    "index.html": "/705-bookreview-app/index.html",
+    "main.01923a39.css.map": "/705-bookreview-app/static/css/main.01923a39.css.map",
+    "main.ce4ebdbd.js.map": "/705-bookreview-app/static/js/main.ce4ebdbd.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.01923a39.css",
+    "static/js/main.ce4ebdbd.js"
+  ]
+}
