@@ -109,4 +109,19 @@ public class UserService {
         User user = userRepository.findByEmailAndPassword(email, password); // after user login, their user id will be stored globally in the front end
         return user != null ? user.getUserId() : 0;
     }
+
+    /**
+     * Get user information
+     * @param userId - User object's id
+     * @return userId, userName, email
+     */
+    public User getUserInfo(Long userId) {
+        User user = userRepository.findByUserId(userId);
+        return user;
+    }
+
+    public String getUserName(Long userId) {
+        User user = userRepository.findByUserId(userId);
+        return user.getUserName();
+    }
 }
