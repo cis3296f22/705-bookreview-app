@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import BookCard from './BookCard';
 import { useState } from 'react';
 import AddButton from './AddButton';
+import { Box, Typography } from '@mui/material';
 
 function SearchBar(token) {
     console.log(token)
@@ -104,7 +105,20 @@ function SearchBar(token) {
         <>
             {/* <AppBar /> */}
             <StyledSearch>
-                <Title>Search</Title>
+                <Box sx={{
+                    background: "rgb(238,238,238)",
+                    marginTop: 12,
+                    paddingX: 12,
+                    paddingBottom: 12,
+                    boxShadow: 2,
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                    alignContent: "center",
+                }}>
+                <Typography variant="h5" paddingTop={3} paddingBottom={1}>
+                    Search For A Book
+                </Typography>
                 <Form onSubmit={handleSearch}>
                     <Input
                         type="text"
@@ -178,6 +192,7 @@ function SearchBar(token) {
                     </select>
                 </div>
                 {searchCards}
+                </Box>
             </StyledSearch>
         </>
     )
@@ -189,6 +204,7 @@ const StyledSearch = styled.div`
 display: flex;
 flex-direction: column;
 align-items: center;
+justify-content: center;
 @media only screen and (max-width: 600px) {
     padding: 1em;
 }
@@ -205,7 +221,7 @@ const Title = styled.div`
 `;
 
 const Form = styled.form`
-    background-color: rgb(238,238,238);
+    background-color: rgb(208,208,208);
     display: flex;
     justify-content: center;
     padding: 1em;
@@ -221,7 +237,7 @@ const Form = styled.form`
 const Input = styled.input`
     font-family: sans-serif;
     width: 45em;
-    height: 1em;
+    height: 2em;
     padding: 0.5em;
     border-radius: 3px;
     font-size: 14px;

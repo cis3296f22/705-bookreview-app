@@ -16,13 +16,14 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import FaceRoundedIcon from '@mui/icons-material/FaceRounded';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
-import VpnKeyTwoToneIcon from '@mui/icons-material/VpnKeyTwoTone';
 import SearchIcon from '@mui/icons-material/Search';
 import ImportContactsRoundedIcon from '@mui/icons-material/ImportContactsRounded';
-import CottageRoundedIcon from '@mui/icons-material/CottageRounded';
+import HomeIcon from '@mui/icons-material/Home';
+import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
+import LogoutIcon from '@mui/icons-material/Logout';
+import useToken from "../useToken";
 
 
 
@@ -100,7 +101,7 @@ export default function MiniDrawer() {
 
     const [anchorEl, setAnchorEl] = React.useState(null);
 
-    const iconArray = [<VpnKeyTwoToneIcon />, <SearchIcon />, <ImportContactsRoundedIcon />, <CottageRoundedIcon/>]
+    const iconArray = [<LogoutIcon/>, <SearchIcon />, <ImportContactsRoundedIcon />, <HomeIcon/>, <ManageAccountsIcon/>]
     const handleMenu = (event) => {
         setAnchorEl(event.currentTarget);
     };
@@ -140,20 +141,10 @@ export default function MiniDrawer() {
                         <MenuIcon />
                     </IconButton>
                     <Typography variant="h6" noWrap component="div">
-                        book'd & rate'd
+                        Book'd & Rated
                     </Typography>
 
                     <div>
-                        <IconButton
-                            size="large"
-                            aria-label="account of current user"
-                            aria-controls="menu-appbar"
-                            aria-haspopup="true"
-                            onClick={handleMenu}
-                            color="inherit"
-                        >
-                            <FaceRoundedIcon />
-                        </IconButton>
                         <Menu
                             id="menu-appbar"
                             anchorEl={anchorEl}
@@ -184,28 +175,6 @@ export default function MiniDrawer() {
                 </DrawerHeader>
                 <Divider />
                 <List>
-                    <ListItem onClick={() => { console.log("home") }} component={Link} to="/home" key='Home' disablePadding sx={{ display: 'block' }}>
-                        <ListItemButton
-                            sx={{
-                                minHeight: 48,
-                                justifyContent: open ? 'initial' : 'center',
-                                px: 2.5,
-                            }}
-                        >
-                            <ListItemIcon
-                                sx={{
-                                    minWidth: 0,
-                                    mr: open ? 3 : 'auto',
-                                    justifyContent: 'center',
-                                }}
-                            >
-                                {iconArray[3]}
-
-                            </ListItemIcon>
-
-                            <ListItemText primary={'home'} sx={{ opacity: open ? 1 : 0 }} />
-                        </ListItemButton>
-                    </ListItem>
                     <ListItem onClick={() => { console.log("search") }} component={Link} to="/search" key='Search' disablePadding sx={{ display: 'block' }}>
                         <ListItemButton
                             sx={{
@@ -225,7 +194,7 @@ export default function MiniDrawer() {
 
                             </ListItemIcon>
 
-                            <ListItemText primary={'search books'} sx={{ opacity: open ? 1 : 0 }} />
+                            <ListItemText primary={'Search Books'} sx={{ opacity: open ? 1 : 0 }} />
                         </ListItemButton>
                     </ListItem>
 
@@ -248,10 +217,32 @@ export default function MiniDrawer() {
 
                             </ListItemIcon>
 
-                            <ListItemText primary={'bookshelves'} sx={{ opacity: open ? 1 : 0 }} />
+                            <ListItemText primary={'Bookshelves'} sx={{ opacity: open ? 1 : 0 }} />
                         </ListItemButton>
                     </ListItem>
-                    <ListItem onClick={() => { console.log("login") }} component={Link} to="/login" key='Log In' disablePadding sx={{ display: 'block' }}>
+                    <ListItem onClick={() => { console.log("account") }} component={Link} to="/account" key='Account' disablePadding sx={{ display: 'block' }}>
+                        <ListItemButton
+                            sx={{
+                                minHeight: 48,
+                                justifyContent: open ? 'initial' : 'center',
+                                px: 2.5,
+                            }}
+                        >
+                            <ListItemIcon
+                                sx={{
+                                    minWidth: 0,
+                                    mr: open ? 3 : 'auto',
+                                    justifyContent: 'center',
+                                }}
+                            >
+                                {iconArray[4]}
+
+                            </ListItemIcon>
+
+                            <ListItemText primary={'My Account'} sx={{ opacity: open ? 1 : 0 }} />
+                        </ListItemButton>
+                    </ListItem>
+                    <ListItem onClick={() => { useToken='' }} component={Link} to="/" key='Log In' disablePadding sx={{ display: 'block' }}>
                         <ListItemButton
                             sx={{
                                 minHeight: 48,
@@ -270,7 +261,7 @@ export default function MiniDrawer() {
 
                             </ListItemIcon>
 
-                            <ListItemText primary={'log in'} sx={{ opacity: open ? 1 : 0 }} />
+                            <ListItemText primary={'Log Out'} sx={{ opacity: open ? 1 : 0 }} />
                         </ListItemButton>
                     </ListItem>
 

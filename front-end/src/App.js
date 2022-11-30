@@ -7,6 +7,7 @@ import Login from "./components/Login";
 import SearchBar from "./components/SearchBar";
 import BookShelf from "./components/BookShelf"
 import AppBar from "./components/AppBar"
+import Account from "./components/Account";
 import useToken from "./useToken";
 
 
@@ -17,7 +18,7 @@ function App(){
 
   // console.log(token)
 
-  if(!token) {
+  if(!token || token=='') {
     return <Login setToken={setToken}/>
   }
 
@@ -29,9 +30,10 @@ function App(){
       <Routes>
         {/* <Route path="/" element={<Navigate to="/login" />} /> */}
         {/* <Route path='/login' element={<Login />} /> */}
+        <Route path='/' element={<SearchBar token={token}/>} />
         <Route path='/search' element={<SearchBar token={token}/>} />
-        <Route path='/' element={<Home />} />
         <Route path='/shelves' element={<BookShelf token={token}/>} />
+        <Route path='/account' element={<Account token={token}/>} />
       </Routes>
     {/* </BrowserRouter> */}
     

@@ -77,5 +77,20 @@ public class UserController {
     public Long userLogin(@PathVariable String email, @PathVariable String password) {
         return userService.userLogin(email, password);
     }
+
+    /**
+     * Get user information
+     * @param userId - User object's id
+     * @return userId, userName, email
+     */
+    @GetMapping("/info/{userId}")
+    public User userLogin(@PathVariable Long userId) {
+        return userService.getUserInfo(userId);
+    }
+
+    @GetMapping("/userName/{userId}")
+    public String getUserName(@PathVariable Long userId) {
+        return userService.getUserName(userId);
+    }
 }
 
