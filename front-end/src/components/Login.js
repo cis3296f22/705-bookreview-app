@@ -107,7 +107,7 @@ export default function Login({ setToken }) {
                     maxWidth={400}
                     alignItems="center"
                     justifyItems="center"
-                    // bgcolor="warning.main"
+                    bgcolor="rgb(240,240,240)"
                     margin="auto"
                     mt={20}
                     padding={4}
@@ -157,7 +157,7 @@ export default function Login({ setToken }) {
 
                     {alert && isSignup &&
                         <Alert
-                            sx={{ mt: 2, border: 1, borderColor: 'white', borderRadius: 7 }}
+                            sx={{ mt: 2, border: 1, borderColor: 'gray', borderRadius: 7 }}
                             severity="error">
                             <strong>This Account Already Exists!</strong>
                         </Alert>
@@ -165,7 +165,7 @@ export default function Login({ setToken }) {
 
                     {alert && !isSignup &&
                         <Alert
-                            sx={{ mt: 2, border: 1, borderColor: 'white', borderRadius: 7 }}
+                            sx={{ mt: 2, border: 1, borderColor: 'gray', borderRadius: 7 }}
                             severity="error">
                             <strong>Incorrect username or password!</strong>
                         </Alert>
@@ -174,7 +174,7 @@ export default function Login({ setToken }) {
                     <Button
                         startIcon={isSignup ? <HowToRegIcon /> : <LoginIcon />}
                         type="submit"
-                        sx={{ mt: 2, border: 1, borderColor: 'white', borderRadius: 4 }}
+                        sx={{ mt: 2, border: 1, borderColor: 'gray', borderRadius: 4 }}
                         variant="contained"
                         color="warning">
                         {isSignup ? "Sign Up" : "Login"}
@@ -183,7 +183,7 @@ export default function Login({ setToken }) {
                     <Button
                         startIcon={isSignup ? <LoginIcon /> : <HowToRegIcon />}
                         onClick={resetState}
-                        sx={{ mt: 2, border: 1, borderColor: 'white', borderRadius: 4 }}>
+                        sx={{ mt: 2, border: 1, borderColor: 'gray', borderRadius: 4 }}>
                         Change To {isSignup ? "Login" : "Sign Up"}
                     </Button>
 

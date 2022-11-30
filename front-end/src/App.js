@@ -8,6 +8,8 @@ import SearchBar from "./components/SearchBar";
 import BookShelf from "./components/BookShelf"
 import AppBar from "./components/AppBar"
 import Account from "./components/Account";
+import Review from "./components/Review";
+import ShowReview from "./components/ShowReview";
 import useToken from "./useToken";
 
 
@@ -18,7 +20,7 @@ function App(){
 
   // console.log(token)
 
-  if(!token || token=='') {
+  if(!token) {
     return <Login setToken={setToken}/>
   }
 
@@ -30,10 +32,12 @@ function App(){
       <Routes>
         {/* <Route path="/" element={<Navigate to="/login" />} /> */}
         {/* <Route path='/login' element={<Login />} /> */}
-        <Route path='/' element={<SearchBar token={token}/>} />
-        <Route path='/search' element={<SearchBar token={token}/>} />
-        <Route path='/shelves' element={<BookShelf token={token}/>} />
-        <Route path='/account' element={<Account token={token}/>} />
+        <Route path='/705-bookreview-app' element={<SearchBar token={token}/>} />
+        <Route path='/705-bookreview-app/search' element={<SearchBar token={token}/>} />
+        <Route path='/705-bookreview-app/shelves' element={<BookShelf token={token}/>} />
+        <Route path='/705-bookreview-app/account' element={<Account token={token}/>} />
+        <Route path='/705-bookreview-app/review' element={<Review token={token}/>} />
+        <Route path='/705-bookreview-app/showreview' element={<ShowReview token={token}/>} />
       </Routes>
     {/* </BrowserRouter> */}
     

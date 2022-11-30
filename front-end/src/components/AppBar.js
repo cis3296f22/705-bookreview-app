@@ -23,11 +23,10 @@ import ImportContactsRoundedIcon from '@mui/icons-material/ImportContactsRounded
 import HomeIcon from '@mui/icons-material/Home';
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import LogoutIcon from '@mui/icons-material/Logout';
-import useToken from "../useToken";
-
-
+import RateReviewIcon from '@mui/icons-material/RateReview';
 
 import { Link } from 'react-router-dom';
+import useToken from '../useToken';
 
 
 const drawerWidth = 240;
@@ -101,7 +100,7 @@ export default function MiniDrawer() {
 
     const [anchorEl, setAnchorEl] = React.useState(null);
 
-    const iconArray = [<LogoutIcon/>, <SearchIcon />, <ImportContactsRoundedIcon />, <HomeIcon/>, <ManageAccountsIcon/>]
+    const iconArray = [<LogoutIcon/>, <SearchIcon />, <ImportContactsRoundedIcon />, <HomeIcon/>, <ManageAccountsIcon/>, <RateReviewIcon/>]
     const handleMenu = (event) => {
         setAnchorEl(event.currentTarget);
     };
@@ -175,7 +174,7 @@ export default function MiniDrawer() {
                 </DrawerHeader>
                 <Divider />
                 <List>
-                    <ListItem onClick={() => { console.log("search") }} component={Link} to="/search" key='Search' disablePadding sx={{ display: 'block' }}>
+                    <ListItem onClick={() => { console.log("search") }} component={Link} to="/705-bookreview-app/search" key='Search' disablePadding sx={{ display: 'block' }}>
                         <ListItemButton
                             sx={{
                                 minHeight: 48,
@@ -197,8 +196,29 @@ export default function MiniDrawer() {
                             <ListItemText primary={'Search Books'} sx={{ opacity: open ? 1 : 0 }} />
                         </ListItemButton>
                     </ListItem>
+                    <ListItem onClick={() => { console.log("review") }} component={Link} to="/705-bookreview-app/review" key='review' disablePadding sx={{ display: 'block' }}>
+                        <ListItemButton
+                            sx={{
+                                minHeight: 48,
+                                justifyContent: open ? 'initial' : 'center',
+                                px: 2.5,
+                            }}
+                        >
+                            <ListItemIcon
+                                sx={{
+                                    minWidth: 0,
+                                    mr: open ? 3 : 'auto',
+                                    justifyContent: 'center',
+                                }}
+                            >
+                                {iconArray[5]}
 
-                    <ListItem onClick={() => { console.log("book shelves") }} component={Link} to="/shelves" key='Book Shelves' disablePadding sx={{ display: 'block' }}>
+                            </ListItemIcon>
+
+                            <ListItemText primary={'Reviews'} sx={{ opacity: open ? 1 : 0 }} />
+                        </ListItemButton>
+                    </ListItem>
+                    <ListItem onClick={() => { console.log("book shelves") }} component={Link} to="/705-bookreview-app/shelves" key='Book Shelves' disablePadding sx={{ display: 'block' }}>
                         <ListItemButton
                             sx={{
                                 minHeight: 48,
@@ -220,7 +240,7 @@ export default function MiniDrawer() {
                             <ListItemText primary={'Bookshelves'} sx={{ opacity: open ? 1 : 0 }} />
                         </ListItemButton>
                     </ListItem>
-                    <ListItem onClick={() => { console.log("account") }} component={Link} to="/account" key='Account' disablePadding sx={{ display: 'block' }}>
+                    <ListItem onClick={() => { console.log("account") }} component={Link} to="/705-bookreview-app/account" key='Account' disablePadding sx={{ display: 'block' }}>
                         <ListItemButton
                             sx={{
                                 minHeight: 48,
@@ -242,7 +262,7 @@ export default function MiniDrawer() {
                             <ListItemText primary={'My Account'} sx={{ opacity: open ? 1 : 0 }} />
                         </ListItemButton>
                     </ListItem>
-                    <ListItem onClick={() => { useToken='' }} component={Link} to="/" key='Log In' disablePadding sx={{ display: 'block' }}>
+                    <ListItem onClick={() => { useToken='' }} component={Link} to="/705-bookreview-app" key='Log In' disablePadding sx={{ display: 'block' }}>
                         <ListItemButton
                             sx={{
                                 minHeight: 48,
