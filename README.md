@@ -6,6 +6,7 @@ Book'd & Rate'd is a web application where users are provided a platform to trac
 Link to [project board](https://trello.com/b/YncmQM2F/sprint)
 
 ## Demo
+Link to GitHub Pages site: https://cis3296f22.github.io/705-bookreview-app/
 
 ## Installation
 1. Install node through [this link](https://nodejs.org/en/) if it isn't downloaded on device already
