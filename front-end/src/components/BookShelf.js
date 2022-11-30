@@ -6,6 +6,7 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import BookCard from './BookCard';
 import styled from 'styled-components';
 import { useState } from 'react';
+import { Box, Typography } from '@mui/material';
 
 export default function BookShelf(token) {
     console.log(token)
@@ -127,7 +128,17 @@ export default function BookShelf(token) {
         <>
             {/* <AppBar /> */}
             <StyledShelf>
-                <Title>Search</Title>
+                <Box sx={{
+                    background: "rgb(238,238,238)",
+                    borderRadius: '2%',
+                    marginTop: 12,
+                    paddingX: 12,
+                    paddingBottom: 12,
+                    boxShadow: 2
+                }}>
+                <Typography variant="h5" paddingTop={3} paddingBottom={1}>
+                    Browse Your Bookshelf 
+                </Typography>
                 {/* <Form onSubmit={handleSearch}> */}
                     {/* <Input
                         type="text"
@@ -135,23 +146,28 @@ export default function BookShelf(token) {
                         // value={searchValue}
                         // onChange={(e) => setSearchValue(e.target.value)}
                     /> */}
-                    <LoadingButton 
-                        // variant="contained" 
-                        onClick={(e) => {handleShelf(0,e)}}
-                        loading={loading}
-                    >
-                        Want To Read
-                    </LoadingButton>
-
-                    <LoadingButton 
-                        // variant="contained" 
-                        onClick={(e) => {handleShelf(1,e)}}
-                        loading={loading}
-                    >
-                        Finished Reading
-                    </LoadingButton>
+                    <Box sx={{
+                        display: "flex",
+                        flexDirection: "row",
+                        background: "rgb(208,208,208)",
+                        alignItems: "center",
+                        justifyContent: "left",
+                        boxShadow: 2
+                    }}>
+                        <Box sx={{background: "rgb(198,198,228)"}}>
+                            <LoadingButton onClick={(e) => {handleShelf(0,e)}} loading={loading}>
+                                Want To Read
+                            </LoadingButton>
+                        </Box>
+                        <Box sx={{background: "rgb(198,198,228)"}}>
+                            <LoadingButton onClick={(e) => {handleShelf(1,e)}} loading={loading}>
+                                Finished Reading
+                            </LoadingButton>
+                        </Box>
+                    </Box>
                 {/* </Form> */}
                 {searchCards}
+                </Box>
             </StyledShelf>
         </>
     )

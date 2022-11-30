@@ -1,4 +1,3 @@
-//import * as React from 'react';
 import { styled } from '@mui/system';
 import { Box, Avatar, Typography, Divider } from '@mui/material';
 import React, { useState, useEffect } from 'react';
@@ -57,8 +56,18 @@ export default function Account(token) {
 
     return (
         <MyComponent>
+            <Box sx={{
+                background: "rgb(238,238,238)",
+                justifyContent: "center",
+                alignItems: "center",
+                borderRadius: '10%',
+                marginTop: 12,
+                paddingX: 12,
+                paddingBottom: 12,
+                boxShadow: 2
+                }}>
             <Avatar 
-                sx={{ mt: 15, width: 200, height: 200}}
+                sx={{ ml: 15, mt: 15, width: 200, height: 200}}
                 src="./public/defaultpfp.png">
             </Avatar>
             <Box sx={{ display: "flex"}}>
@@ -88,6 +97,7 @@ export default function Account(token) {
                     <RenderSavedBooks/>
                 </Typography>
             </Labels>
+            </Box>
             </Box>
         </MyComponent>
     )

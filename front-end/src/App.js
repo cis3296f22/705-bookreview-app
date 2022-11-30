@@ -30,7 +30,7 @@ function App(){
       <Routes>
         {/* <Route path="/" element={<Navigate to="/login" />} /> */}
         {/* <Route path='/login' element={<Login />} /> */}
-        <Route path='/' element={<Home />} />
+        <Route path='/' element={<SearchBar token={token}/>} />
         <Route path='/search' element={<SearchBar token={token}/>} />
         <Route path='/shelves' element={<BookShelf token={token}/>} />
         <Route path='/account' element={<Account token={token}/>} />
