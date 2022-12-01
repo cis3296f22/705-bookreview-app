@@ -14,7 +14,7 @@ export default function Review(token) {
         setLoading(true)
         try {
             const books = [];
-            const response = await fetch(`http://localhost:8080/user/get/${token.token}`)
+            const response = await fetch(`https://bookdandrated.herokuapp.com/user/get/${token.token}`)
             const data = await response.json()
             const isbnarray = []
             data.forEach((element) => {
