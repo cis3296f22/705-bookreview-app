@@ -19,7 +19,7 @@ export default function BookShelf(token) {
         setLoading(true)
         try {
             const books = [];
-            const response = await fetch(`http://localhost:8080/user/get/${token.token}`)
+            const response = await fetch(`https://bookdandrated.herokuapp.com/user/get/${token.token}`)
             const data = await response.json()
             // console.log(data)
             const isbnarray = []
