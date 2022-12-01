@@ -57,7 +57,7 @@ export default function Login({ setToken }) {
             redirect: 'follow'
         };
 
-        return fetch("http://localhost:8080/user/create", requestOptions)
+        return fetch("https://bookdandrated.herokuapp.com/user/create", requestOptions)
             .then(response => {
                 if (!response.data) {
                     setAlert(true);
@@ -73,7 +73,7 @@ export default function Login({ setToken }) {
             redirect: 'follow'
         };
 
-        return fetch(`http://localhost:8080/user/login/${inputs.email}/${inputs.password}`, requestOptions)
+        return fetch(`https://bookdandrated.herokuapp.com/user/login/${inputs.email}/${inputs.password}`, requestOptions)
             .then(response => {
                 if (!response.data) {
                     setAlert(true);

@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 
 export default function Account(token) {
     const GetInfo = async (i) => {
-        const response = await fetch(`http://localhost:8080/user/info/${token.token}`);
+        const response = await fetch(`https://bookdandrated.herokuapp.com/user/info/${token.token}`);
         const data = await response.json();
         console.log(data);
         if (i==0)
